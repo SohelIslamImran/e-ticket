@@ -58,14 +58,14 @@ const Header = () => {
                             :
                             <>
                                 <Nav.Link
-                                    onClick={() => setNewUser(!newUser)}
+                                    onClick={() => setNewUser(false)}
                                     as={Link}
                                     to="/login" s
                                     tyle={{ fontWeight: "500" }}>
                                     Sign in
                                 </Nav.Link>
                                 <Nav.Link
-                                    onClick={() => setNewUser(!newUser)}
+                                    onClick={() => setNewUser(true)}
                                     style={{ fontWeight: "500" }}>
                                     Sign up
                                 </Nav.Link>

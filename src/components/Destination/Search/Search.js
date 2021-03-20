@@ -26,6 +26,10 @@ const Search = () => {
                             <Form.Label>Pick To</Form.Label>
                             <Form.Control name="pickTo" defaultValue={search.pickTo} ref={register} type="text" placeholder="To" required />
                         </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Date</Form.Label>
+                            <Form.Control name="date" ref={register} type="date" />
+                        </Form.Group>
                         <Button variant="primary" className="shadow-none" type="submit" block>
                             Search
                         </Button>

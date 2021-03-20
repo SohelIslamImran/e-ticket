@@ -175,7 +175,8 @@ const Login = () => {
                                 className="btn-google text-uppercase signin_btn"
                                 type="submit"
                                 block>
-                                <i className="bi bi-google mr-2"></i> Sign up with Google
+                                <i className="bi bi-google mr-2"></i>
+                                {newUser ? 'Sign up with Google' : 'Sign in with Google'}
                             </Button>
                             <Button
                                 onClick={fbSignIn}
@@ -183,7 +184,8 @@ const Login = () => {
                                 className="btn-facebook text-uppercase signin_btn"
                                 type="submit"
                                 block>
-                                <i className="bi bi-facebook mr-2"></i> Sign up with Facebook
+                                <i className="bi bi-facebook mr-2"></i>
+                                {newUser ? 'Sign up with Facebook' : 'Sign in with Facebook'}
                             </Button>
                         </Card.Body>
                     </Card>

@@ -14,6 +14,7 @@ const GoogleMap = () => {
         height="650"
         style={{ border: 0, borderRadius: "10px" }}
         allowFullScreen=""
+        zoomControl= "false"
         loading="lazy">
       </iframe>
     </>
