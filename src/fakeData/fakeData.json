@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "ticketType": "One Time Ticket",
+        "cost": 100,
+        "image": "https://i.ibb.co/M6KYw8w/Group-33142.png"
+    },
+    {
+        "id": "2",
+        "ticketType": "One Day Pass",
+        "cost": 500,
+        "image": "https://i.ibb.co/KGGG04s/Group-33143.png"
+    },
+    {
+        "id": "3",
+        "ticketType": "Monthly Pass",
+        "cost": 1500,
+        "image": "https://i.ibb.co/RDkpkL7/Group-33144.png"
+    },
+    {
+        "id": "4",
+        "ticketType": "Annual Pass",
+        "cost": 9000,
+        "image": "https://i.ibb.co/ZY43tN5/Group-33145.png"
+    }
+]
