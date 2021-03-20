@@ -7,7 +7,7 @@ import './Login.css';
 import { createUserWithEmailAndPassword, handleFbSignIn, handleGoogleSignIn, initializeLoginFramework, signInWithEmailAndPassword } from './LoginManager';
 
 const Login = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, ticket, setTicket, search, setSearch, newUser, setNewUser] = useContext(UserContext);
 
     const history = useHistory();
     const location = useLocation();
@@ -17,7 +17,6 @@ const Login = () => {
     const password = useRef({});
     password.current = watch("password", "");
 
-    const [newUser, setNewUser] = useState(true);
     const [user, setUser] = useState({
         isSignedIn: false,
         name: '',
@@ -70,13 +69,13 @@ const Login = () => {
             <Row>
                 <Col lg="10" xl="9" className="mx-auto">
                     <Card className="card-signin flex-row my-5">
-                        <Card.Img variant="left" className="d-none d-md-flex">
+                        <Card.Img variant="left" className="d-none d-md-flex card_img_left">
                         </Card.Img>
-                        <Card.Body className="card-body">
-                            <Card.Title as={'h1'} className="text-center">{newUser ? 'Sign Up' : 'Sign In'}</Card.Title>
-                            <Form noValidate className="form-signin" onSubmit={handleSubmit(onSubmit)}>
+                        <Card.Body className="card_body">
+                            <Card.Title as={'h1'} className="text-center card_title">{newUser ? 'Sign Up' : 'Sign In'}</Card.Title>
+                            <Form noValidate className="form_signin" onSubmit={handleSubmit(onSubmit)}>
                                 {newUser &&
-                                    <Form.Group controlId="NameValidation">
+                                    <Form.Group controlId="NameValidation" className="form_group">
                                         <Form.Label>Name</Form.Label>
                                         <Form.Control
                                             name="name"
@@ -92,13 +91,13 @@ const Login = () => {
                                     </Form.Group>
                                 }
 
-                                <Form.Group controlId="EmailValidation">
+                                <Form.Group controlId="EmailValidation" className="form_group">
                                     <Form.Label>Email address</Form.Label>
                                     <Form.Control
                                         name="email"
                                         type="email"
                                         ref={register({ required: true, pattern: /\S+@\S+\.\S+/ })}
-                                        placeholder="Email address"
+                                        placeholder="Enter email"
                                         required
                                         isInvalid={errors.email} />
                                     <Form.Control.Feedback type="invalid">
@@ -106,7 +105,7 @@ const Login = () => {
                                     </Form.Control.Feedback>
                                 </Form.Group>
                                 <hr />
-                                <Form.Group controlId="PasswordValidation">
+                                <Form.Group controlId="PasswordValidation" className="form_group">
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control
                                         name="password"
@@ -127,7 +126,7 @@ const Login = () => {
                                 </Form.Group>
 
                                 {newUser &&
-                                    <Form.Group controlId="ConfirmPasswordValidation">
+                                    <Form.Group controlId="ConfirmPasswordValidation" className="form_group">
                                         <Form.Label>Confirm password</Form.Label>
                                         <Form.Control
                                             name="confirmPassword"
@@ -145,7 +144,7 @@ const Login = () => {
                                     </Form.Group>
                                 }
 
-                                <Button variant="primary" size="lg" className="text-uppercase" type="submit" block>
+                                <Button variant="primary" size="lg" className="text-uppercase signin_btn" type="submit" block>
                                     {newUser ? 'Sign Up' : 'Sign In'}
                                 </Button>
                                 <p className="text-right mt-2" style={{ fontSize: '.9rem' }}>
@@ -159,12 +158,32 @@ const Login = () => {
                                     </Link>
                                 </p>
                             </Form>
-                            <hr className="my-4" />
-                            <Button onClick={googleSignIn} size="lg" className="btn-google text-uppercase" type="submit" block>
-                                Sign up with Google
+                            <h5 className="text-center" style={{
+                                borderBottom: "1px solid #9a9b9c",
+                                lineHeight: "0.1em",
+                                margin: "10px 0 20px"
+                            }}>
+                                <span style={{
+                                    background: "#fff",
+                                    padding: "0 10px"
+                                }}>Or</span>
+                            </h5>
+                            <Button
+                                variant="danger"
+                                onClick={googleSignIn}
+                                size="lg"
+                                className="btn-google text-uppercase signin_btn"
+                                type="submit"
+                                block>
+                                <i className="bi bi-google mr-2"></i> Sign up with Google
                             </Button>
-                            <Button onClick={fbSignIn} size="lg" className="btn-facebook text-uppercase" type="submit" block>
-                                Sign up with Facebook
+                            <Button
+                                onClick={fbSignIn}
+                                size="lg"
+                                className="btn-facebook text-uppercase signin_btn"
+                                type="submit"
+                                block>
+                                <i className="bi bi-facebook mr-2"></i> Sign up with Facebook
                             </Button>
                         </Card.Body>
                     </Card>

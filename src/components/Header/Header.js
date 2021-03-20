@@ -2,10 +2,10 @@ import React, { useContext } from 'react';
 import { Button, Container, Image, Nav, Navbar, OverlayTrigger, Popover } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
-import { initializeLoginFramework, handleSignOut } from '../Login/LoginManager';
+import { handleSignOut, initializeLoginFramework } from '../Login/LoginManager';
 
 const Header = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, ticket, setTicket, search, setSearch, newUser, setNewUser] = useContext(UserContext);
 
     initializeLoginFramework();
     const signOut = () => {
@@ -16,7 +16,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg"  bg="primary" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
             <Container>
                 <Navbar.Brand className="py-0" as={Link} to="/" style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
                     E-Ticket
@@ -57,8 +57,18 @@ const Header = () => {
                             </>
                             :
                             <>
-                                <Nav.Link as={Link} to="/login" style={{ fontWeight: "500" }}>Sign in</Nav.Link>
-                                <Nav.Link style={{ fontWeight: "500" }}>Sign up</Nav.Link>
+                                <Nav.Link
+                                    onClick={() => setNewUser(!newUser)}
+                                    as={Link}
+                                    to="/login" s
+                                    tyle={{ fontWeight: "500" }}>
+                                    Sign in
+                                </Nav.Link>
+                                <Nav.Link
+                                    onClick={() => setNewUser(!newUser)}
+                                    style={{ fontWeight: "500" }}>
+                                    Sign up
+                                </Nav.Link>
                             </>
                         }
                     </Nav>

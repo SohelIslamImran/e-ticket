@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import { UserContext } from '../../../App';
 
 const SearchResult = () => {
@@ -22,7 +22,7 @@ const SearchResult = () => {
                 <Col md="9" xs="8" className="d-flex align-items-center px-0">
                     <Card.Body className="px-0">
                         <Card.Title className="d-inline" style={{ marginRight: "50px" }}>Ticket 1</Card.Title>
-                        <Card.Title className="d-inline">${ticket}</Card.Title>
+                        <Card.Title className="d-inline">৳{ticket}</Card.Title>
                     </Card.Body>
                 </Col>
             </Row>
@@ -33,7 +33,7 @@ const SearchResult = () => {
                 <Col md="9" xs="8" className="d-flex align-items-center px-0">
                     <Card.Body className="px-0">
                         <Card.Title className="d-inline" style={{ marginRight: "50px" }}>Ticket 2</Card.Title>
-                        <Card.Title className="d-inline">${ticket}</Card.Title>
+                        <Card.Title className="d-inline">৳{ticket}</Card.Title>
                     </Card.Body>
                 </Col>
             </Row>
@@ -44,8 +44,17 @@ const SearchResult = () => {
                 <Col md="9" xs="8" className="d-flex align-items-center px-0">
                     <Card.Body className="px-0">
                         <Card.Title className="d-inline" style={{ marginRight: "50px" }}>Ticket 3</Card.Title>
-                        <Card.Title className="d-inline">${ticket}</Card.Title>
+                        <Card.Title className="d-inline">৳{ticket}</Card.Title>
                     </Card.Body>
+                </Col>
+            </Row>
+            <Row>
+                <Col xs="12" className="d-flex justify-content-center mb-2">
+                    <Button
+                        onClick={() => setSearch(false)}
+                        className="shadow-none"
+                        variant="outline-danger"
+                        size="sm">Search again</Button>
                 </Col>
             </Row>
         </Card>
