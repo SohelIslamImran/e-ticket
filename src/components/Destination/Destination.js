@@ -7,7 +7,7 @@ import SearchResult from './SearchResult/SearchResult';
 
 const Destination = () => {
     const [loggedInUser, setLoggedInUser, ticket, setTicket, search, setSearch] = useContext(UserContext);
-    console.log(search.isSearched);
+
     return (
         <Container>
             <Row>
