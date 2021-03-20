@@ -5,7 +5,7 @@ import { UserContext } from '../../App';
 
 const Ticket = (props) => {
     const { ticketType, cost, image } = props.ticket;
-    const [loggedInUser, setLoggedInUser, ticket, setTicket] = useContext(UserContext);
+    const { setTicket } = useContext(UserContext);
 
     return (
         <Col className="d-flex justify-content-center">

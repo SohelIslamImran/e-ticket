@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { UserContext } from '../../App';
 
 const GoogleMap = () => {
-  const [loggedInUser, setLoggedInUser, ticketCost, setTicketCost, search, setSearch] = useContext(UserContext);
+  const { search } = useContext(UserContext);
 
   return (
     <>

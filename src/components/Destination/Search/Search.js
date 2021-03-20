@@ -4,8 +4,8 @@ import { useForm } from 'react-hook-form';
 import { UserContext } from '../../../App';
 
 const Search = () => {
-    const { register, handleSubmit, watch, errors } = useForm();
-    const [loggedInUser, setLoggedInUser, ticket, setTicket, search, setSearch] = useContext(UserContext);
+    const { register, handleSubmit } = useForm();
+    const {search, setSearch } = useContext(UserContext);
 
     const onSubmit = data => {
         data.isSearched = true;

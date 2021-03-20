@@ -7,7 +7,7 @@ import './Login.css';
 import { createUserWithEmailAndPassword, handleFbSignIn, handleGoogleSignIn, initializeLoginFramework, signInWithEmailAndPassword } from './LoginManager';
 
 const Login = () => {
-    const [loggedInUser, setLoggedInUser, ticket, setTicket, search, setSearch, newUser, setNewUser] = useContext(UserContext);
+    const { setLoggedInUser, newUser, setNewUser } = useContext(UserContext);
 
     const history = useHistory();
     const location = useLocation();
@@ -33,8 +33,8 @@ const Login = () => {
         if (newUser && name && email && password) {
             createUserWithEmailAndPassword(name, email, password)
                 .then(res => {
-                    setUser(res);
                     res.name = name;
+                    setUser(res);
                     history.replace(from);
                 })
         }

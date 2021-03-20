@@ -5,7 +5,7 @@ import { UserContext } from '../../App';
 import { handleSignOut, initializeLoginFramework } from '../Login/LoginManager';
 
 const Header = () => {
-    const [loggedInUser, setLoggedInUser, ticket, setTicket, search, setSearch, newUser, setNewUser] = useContext(UserContext);
+    const { loggedInUser, setLoggedInUser, setNewUser } = useContext(UserContext);
 
     initializeLoginFramework();
     const signOut = () => {

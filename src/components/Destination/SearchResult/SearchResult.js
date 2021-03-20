@@ -3,7 +3,7 @@ import { Button, Card, Col, Row } from 'react-bootstrap';
 import { UserContext } from '../../../App';
 
 const SearchResult = () => {
-    const [loggedInUser, setLoggedInUser, ticket, setTicket, search, setSearch] = useContext(UserContext);
+    const {ticket, search, setSearch} = useContext(UserContext);
 
     return (
         <Card className="mt-5" style={{ background: "#EFEFEF", borderRadius: "10px" }}>
