@@ -5,11 +5,11 @@ import { UserContext } from '../../App';
 
 const Ticket = (props) => {
     const { ticketType, cost, image } = props.ticket;
-    const [loggedInUser, setLoggedInUser, ticketCost, setTicketCost] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, ticket, setTicket] = useContext(UserContext);
 
     return (
-        <Col>
-            <Card bg="transparent" text="white" className="border-0" style={{ width: '15.4rem' }}>
+        <Col className="d-flex justify-content-center">
+            <Card bg="transparent" text="white" className="border-0 mb-4" style={{ width: '15.4rem' }}>
                 <Card.Img src={image} alt="Card image" />
                 <Card.ImgOverlay>
                     <Card.Body className="py-0 px-2" style={{ height: '73%' }}>
@@ -21,7 +21,7 @@ const Ticket = (props) => {
                             borderRadius: '57px'
                             }}
                             as={Link} to="/destination"
-                            onClick={() => setTicketCost(cost)}
+                            onClick={() => setTicket(cost)}
                             size="lg">Buy Now</Button>
                     </Card.Body>
                     <Card.Text className="text-center mt-3" style={{ height: '22%', fontSize: '3.7rem', fontWeight: 'bold' }} as={'h1'}>৳&#2547;{cost}</Card.Text>

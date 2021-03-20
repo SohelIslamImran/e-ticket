@@ -30,13 +30,12 @@ const Login = () => {
     initializeLoginFramework();
 
     const onSubmit = data => {
-        console.log('data', data);
         const { name, email, password } = data;
         if (newUser && name && email && password) {
             createUserWithEmailAndPassword(name, email, password)
                 .then(res => {
-                    res.name = name;
                     setUser(res);
+                    res.name = name;
                     history.replace(from);
                 })
         }
@@ -65,12 +64,6 @@ const Login = () => {
                 history.replace(from);
             });
     }
-
-/*     const handleResponse = (res, redirect) => {
-        setUser(res);
-        setLoggedInUser(res);
-        redirect && history.replace(from);
-    } */
 
     return (
         <Container>

@@ -6,7 +6,7 @@ import Search from './Search/Search';
 import SearchResult from './SearchResult/SearchResult';
 
 const Destination = () => {
-    const [loggedInUser, setLoggedInUser, ticketCost, setTicketCost, search, setSearch] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, ticket, setTicket, search, setSearch] = useContext(UserContext);
     console.log(search.isSearched);
     return (
         <Container>

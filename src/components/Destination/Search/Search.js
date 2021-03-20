@@ -5,7 +5,7 @@ import { UserContext } from '../../../App';
 
 const Search = () => {
     const { register, handleSubmit, watch, errors } = useForm();
-    const [loggedInUser, setLoggedInUser, ticketCost, setTicketCost, search, setSearch] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser, ticket, setTicket, search, setSearch] = useContext(UserContext);
 
     const onSubmit = data => {
         data.isSearched = true;
@@ -14,7 +14,7 @@ const Search = () => {
 
     return (
         <>
-            <Card className="my-5" style={{ background: "#EFEFEF", borderRadius: "10px" }}>
+            <Card className="mt-5" style={{ background: "#EFEFEF", borderRadius: "10px" }}>
                 <Card.Body>
                     <Form onSubmit={handleSubmit(onSubmit)}>
                         <Form.Group>

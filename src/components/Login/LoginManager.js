@@ -12,54 +12,26 @@ export const createUserWithEmailAndPassword = (name, email, password) => {
         .createUserWithEmailAndPassword(email, password)
         .then(res => {
             updateUserName(name);
-            const { displayName, photoURL, email } = res.user;
-            const signedInUser = {
-                isSignedIn: true,
-                name: displayName,
-                email: email,
-                photo: photoURL
-            }
-            return signedInUser;
+            return handleResponse(res);
         })
-        .catch(error => {
-            const newUserInfo = {};
-            newUserInfo.error = error.message;
-            newUserInfo.success = false;
-            return newUserInfo;
-        });
+        .catch(error => console.log(error.message))
 }
 
 const updateUserName = name => {
     const user = firebase.auth().currentUser;
     user.updateProfile({
         displayName: name
-    }).then(() => {
-        console.log('user name updated successfully')
-    }).catch((error) => {
-        console.log(error)
-    });
+    })
+        .then(() => console.log('user name updated successfully'))
+        .catch(error => console.log(error.message))
 }
 
 export const signInWithEmailAndPassword = (email, password) => {
     return firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
-        .then(res => {
-            const { displayName, photoURL, email } = res.user;
-            const signedInUser = {
-                isSignedIn: true,
-                name: displayName,
-                email: email,
-                photo: photoURL
-            }
-            return signedInUser;
-        })
-        .catch(function (error) {
-            const newUserInfo = {};
-            newUserInfo.error = error.message;
-            newUserInfo.success = false;
-            return newUserInfo;
-        });
+        .then(res => handleResponse(res))
+        .catch(error => console.log(error.message));
 }
 
 export const handleGoogleSignIn = () => {
@@ -67,22 +39,8 @@ export const handleGoogleSignIn = () => {
     return firebase
         .auth()
         .signInWithPopup(googleProvider)
-        .then(res => {
-            const { displayName, photoURL, email } = res.user;
-            const signedInUser = {
-                isSignedIn: true,
-                name: displayName,
-                email: email,
-                photo: photoURL
-            }
-            return signedInUser;
-        })
-        .catch(err => {
-            const newUserInfo = {};
-            newUserInfo.error = err.message;
-            newUserInfo.success = false;
-            return newUserInfo;
-        })
+        .then(res => handleResponse(res))
+        .catch(error => console.log(error.message))
 }
 
 export const handleFbSignIn = () => {
@@ -90,19 +48,33 @@ export const handleFbSignIn = () => {
     return firebase
         .auth()
         .signInWithPopup(fbProvider)
+        .then(res => handleResponse(res))
+        .catch(error => console.log(error.message))
+}
+
+const handleResponse = (res) => {
+    const { displayName, photoURL, email } = res.user;
+    const signedInUser = {
+        isSignedIn: true,
+        name: displayName,
+        email: email,
+        photo: photoURL
+    }
+    return signedInUser;
+}
+
+export const handleSignOut = () => {
+    return firebase
+        .auth()
+        .signOut()
         .then(res => {
-            const { displayName, photoURL, email } = res.user;
-            const signedInUser = {
-                isSignedIn: true,
-                name: displayName,
-                email: email,
-                photo: photoURL
+            const signedOutUser = {
+                isSignedIn: false,
+                name: '',
+                email: '',
+                photo: ''
             }
-            return signedInUser;
-        }).catch(err => {
-            const newUserInfo = {};
-            newUserInfo.error = err.message;
-            newUserInfo.success = false;
-            return newUserInfo;
+            return signedOutUser;
         })
+        .catch(error => console.log(error.message))
 }

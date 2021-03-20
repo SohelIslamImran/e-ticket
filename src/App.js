@@ -14,11 +14,11 @@ export const UserContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
-  const [ticketCost, setTicketCost] = useState(100);
+  const [ticket, setTicket] = useState(100);
   const [search, setSearch] = useState({});
 
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser, ticketCost, setTicketCost, search, setSearch]}>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser, ticket, setTicket, search, setSearch]}>
       <Router>
         <Header />
         <Switch>
