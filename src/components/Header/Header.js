@@ -16,7 +16,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+        <Navbar collapseOnSelect expand="lg"  variant="dark">
             <Container>
                 <Navbar.Brand className="py-0" as={Link} to="/" style={{ fontSize: "1.5rem", fontWeight: "bold" }}>
                     E-Ticket

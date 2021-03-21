@@ -38,6 +38,7 @@
   font-weight: bold !important;
   padding: 1rem !important;
   transition: all 0.2s !important;
+  box-shadow: none !important;
 }
 
 .form_group {
@@ -57,7 +58,15 @@
   background-color: #ea4335 !important;
 }
 
+.btn-google:hover {
+  background-color: #cc2f20 !important;
+}
+
 .btn-facebook {
   color: white;
   background-color: #3b5998 !important;
+}
+
+.btn-facebook:hover {
+  background-color: #2558c5 !important;
 }
