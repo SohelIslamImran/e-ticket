@@ -11,7 +11,7 @@ const Login = () => {
 
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/" } };
+    const { from } = location.state || { from: { pathname: "/destination" } };
 
     const { register, handleSubmit, watch, errors } = useForm();
     const password = useRef({});
