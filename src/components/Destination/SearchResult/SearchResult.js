@@ -10,8 +10,14 @@ const SearchResult = () => {
             <Row className="m-3">
                 <Col className="bg-primary text-white" style={{ borderRadius: "10px" }}>
                     <Card.Body className="p-2">
-                        <Card.Title as={"li"} style={{ fontSize: "1.5rem" }}>{search.pickFrom}</Card.Title>
-                        <Card.Title as={"li"} style={{ fontSize: "1.5rem" }}>{search.pickTo}</Card.Title>
+                        <Card.Title style={{ fontSize: "1.5rem" }}>
+                            <i style={{ fontSize: "1.4rem" }} className="bi bi-geo-alt-fill mr-4"></i>
+                            {search.pickFrom}
+                        </Card.Title>
+                        <Card.Title style={{ fontSize: "1.5rem" }}>
+                            <i style={{ fontSize: "1.4rem" }} className="bi bi-geo-alt-fill mr-4"></i>
+                            {search.pickTo}
+                        </Card.Title>
                     </Card.Body>
                 </Col>
             </Row>

@@ -66,6 +66,8 @@ const Header = () => {
                                 </Nav.Link>
                                 <Nav.Link
                                     onClick={() => setNewUser(true)}
+                                    as={Link}
+                                    to="/login"
                                     style={{ fontWeight: "500" }}>
                                     Sign up
                                 </Nav.Link>
